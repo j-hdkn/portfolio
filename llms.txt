@@ -1,43 +1,46 @@
-# Jules Houndekannou
+# Jules HOUNDEKANNOU (Enagnon Mahougnon Jules HOUNDEKANNOU)
 
-## Short summary
-Jules Houndekannou is a cybersecurity and IT operations professional focused on securing critical infrastructure and leading technical projects. He combines hands-on operations with strategic project management.
+## Short Summary
+Jules HOUNDEKANNOU is an Engineering Student in Computer Science, Systems, Networks, and Information Security at EILCO (Université du Littoral Côte d'Opale). He is a Technical SEO Consultant, Web Developer, and Founder of CoDoc Agency. He specializes in network architecture, infrastructure hardening, technical SEO auditing, and high-availability IT operations.
 
-## Role and positioning
-- Cybersecurity: blue team, network security, and infrastructure hardening
-- IT operations: availability, monitoring, incident readiness
-- IT project leadership: audits, roadmaps, delivery, vendor coordination
+## Role & Positioning
+- **Cybersecurity & Network Engineering:** Infrastructure hardening, blue team operations, VPN architectures (DMVPN, IPsec), firewalling, and threat mitigation.
+- **Systems & IT Operations:** High availability, monitoring, system administration (Linux Debian/RedHat, Windows Server), and incident readiness.
+- **IT Project Leadership & Technical SEO:** Technical SEO audits, web platform architecture, digital transformation, and vendor/project coordination.
 
-## Core strengths
-- Pragmatic, field-oriented security architecture
-- High-availability telecom and data center operations
-- Documentation, process discipline, and risk reduction
-- Cross-functional collaboration and autonomous execution
+## Technical Core & Expertise
+- **Networking & Architecture:** Cisco IOS, DMVPN (mGRE, NHRP), IPsec (ISAKMP, ESP-AES, SHA-HMAC), EIGRP (AS 100), BGP, OSPF, VLANs, Routing & Switching, IPv4/IPv6 dual-stack, Wireshark, GNS3, Packet Tracer.
+- **Systems & Security:** Linux (Debian 13, Ubuntu), Windows Server, System Hardening, OpenSSH, iptables (stateful/stateless), pfSense, Active Directory, VirtualBox.
+- **Network Services & Protocols:** ISC DHCP, DNS, File Sharing (NFS with root_squash, Samba, SFTP), SSH, ARP, NAT/PAT.
+- **Programming & Databases:** C (Data Structures), Java, Python, MATLAB, SQL (MySQL, SQLite, MongoDB), HTML/CSS, JavaScript, TypeScript, React, Node.js, Express.
+- **Methodologies, SEO & Tools:** Agile/Scrum (Jira), Git/GitHub, Technical SEO Audits (Screaming Frog, Sitebulb, Google Search Console, GA4, SEMrush, Ahrefs), Microsoft Office Pack (Advanced).
 
-## Experience highlights
-- Critical operations in telecom environments with strict SLA requirements
-- Security hardening of firewalls and load balancers
-- IT transformation projects for SMEs from audit to deployment
-- Systems and network administration for international institutions
+## Featured Projects
 
-## Technical expertise
-- Networking and security: pfSense, Cisco, VPN (IPsec, OpenVPN), IDS/IPS
-- Monitoring and analysis: ELK Stack, Wireshark
-- Offensive security: Kali Linux, Nmap, Metasploit, OWASP Top 10
-- Systems and automation: Linux (Debian/RedHat), Windows Server, Bash, Python
-- Project methods: Agile, V-Model, technical documentation, IT governance
+### 1. Multisite Network Architecture with Dynamic Multipoint VPN (DMVPN)
+- **Role:** Lead Researcher & Network Engineer (Bachelor's Thesis, IFRI - Université d'Abomey-Calavi).
+- **Description:** Designed and deployed a scalable, secure multisite enterprise network topology interconnecting Cotonou (Hub), Calavi (Spoke), and Allada (Spoke) under GNS3. Integrated DMVPN (mGRE, NHRP) with IPsec encryption and EIGRP dynamic routing.
+- **Key Results:** Reduced ICMP overlay latency from ~91 ms (classic IPsec) to ~76 ms (DMVPN), eliminated single points of failure, and simplified site expansion without reconfiguring existing tunnels.
+- **Repository:** https://github.com/j-hdkn/dmvpn-network-architecture
 
-## Education and certifications
-- EILCO: engineering studies in security and networks (2023-present)
-- IFRI-UAC: bachelor in cybersecurity (2020-2023)
-- Certifications: MTCNA, ISC2 CC, SecNumAcademie
+### 2. Corporate Network Infrastructure & Security Audit (SARL Numeryo)
+- **Role:** Systems & Security Engineer (EILCO - ULCO Project).
+- **Description:** Engineered and secured a virtualized enterprise network infrastructure on Debian 13 (VirtualBox). Deployed persistent dual-stack IPv4/IPv6, ISC DHCP server, and cross-department file sharing (NFS with root_squash, Samba, SFTP).
+- **Key Results:** Built a restrictive stateful iptables firewall, hardened OpenSSH via RSA 4096-bit public key authentication (disabling password auth), and performed post-deployment security auditing using nmap.
+- **Repository:** https://github.com/j-hdkn/numeryo-network-infrastructure-security
 
-## Ideal conversations
-- Securing critical infrastructure and reducing attack surfaces
-- High-availability operations and telecom-grade resilience
-- IT transformation, audits, and roadmap definition
-- Operational security, monitoring, and incident readiness
+## Experience Highlights
+- **Founder & Technical Consultant at CoDoc Agency:** IT and digital services, technical SEO audits, site architecture, and log analysis.
+- **Technical SEO Consultant & Web Developer:** Log analysis, crawlability/indexability optimization, JSON-LD schema, and web platform development (saasunivers.com, jardinmood.com, financialscop.com).
+- **Network & Systems Internship at Moov Africa Bénin:** Hands-on operations in telecom environment with strict SLA requirements.
 
-## Contact
-- Email: enagnonhoundekannou@gmail.com
-- Location: France / International
+## Education & Certifications
+- **EILCO (École d'Ingénieurs du Littoral Côte d'Opale, France):** Engineering Degree in Computer Science, Security, and Networks (2025–Present).
+- **IFRI - Université d'Abomey-Calavi (Benin):** Bachelor’s Degree (Licence) in Computer Science, Specialization in Computer Security (2020–2023).
+- **Certifications:** MTCNA (MikroTik Certified Network Associate), ISC2 CC (Certified in Cybersecurity), SecNumAcadémie (ANSSI).
+
+## Contact & Links
+- **Email:** enagnonhoundekannou@gmail.com
+- **GitHub:** https://github.com/j-hdkn
+- **Portfolio:** https://portfolio-ruddy-tau-19.vercel.app
+- **Location:** France / International

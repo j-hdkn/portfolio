@@ -1,0 +1,287 @@
+
+
+/* --- Variables Globales --- */
+:root {
+    --bg-color: #0d1117;          /* Fond noir très doux style GitHub/Terminal */
+    --card-bg: #161b22;           /* Fond des blocs / cartes de projet */
+    --text-main: #e6edf3;         /* Texte principal blanc cassé */
+    --text-muted: #8b949e;        /* Texte secondaire / dates / sous-titres */
+    --accent: #58a6ff;            /* Bleu cyan d'accentuation (liens / actif) */
+    --border-color: #30363d;      /* Bordures et séparateurs discrets */
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+/* --- Reset & Structure de Base --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    padding: 3rem 1rem;
+}
+
+.container {
+    max-width: 740px;
+    margin: 0 auto;
+}
+
+/* --- En-Tête & Navigation (Commun aux 3 pages) --- */
+.site-header {
+    margin-bottom: 2rem;
+}
+
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.profile-avatar img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+}
+
+/* Adaptation pour mobile */
+@media (max-width: 600px) {
+    .header-content {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+    
+
+}
+
+.profile-title h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-main);
+}
+
+.tagline {
+    font-size: 1.05rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-top: 0.2rem;
+}
+
+.main-nav {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.main-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+    color: var(--text-main);
+}
+
+.main-nav a.active {
+    color: var(--accent);
+    font-weight: 600;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.75rem;
+    margin-bottom: -0.75rem;
+}
+
+.separator {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 2rem 0;
+}
+
+/* --- Sections --- */
+.section {
+    margin-bottom: 2.5rem;
+}
+
+.section h2 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    margin-bottom: 1.25rem;
+}
+
+.section-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Page 1 : Resume (CV / Parcours) --- */
+.timeline-item {
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--border-color);
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.item-header strong {
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.date {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.institution {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+}
+
+/* Style spécifique pour les ancres d'institutions / entreprises */
+.institution a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Listes de compétences */
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.skills-list li {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.skills-list strong {
+    color: var(--text-main);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+/* --- Page 2 : Featured Projects --- */
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.25rem;
+    transition: border-color 0.2s ease;
+}
+
+.project-card:hover {
+    border-color: var(--accent);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+}
+
+.project-header h3 a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.project-header h3 a:hover {
+    text-decoration: underline;
+}
+
+.tech-stack {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.project-card p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+}
+
+/* --- Page 3 : Resources --- */
+.resource-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.resource-list li {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.resource-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-family: var(--font-mono);
+}
+
+.resource-list a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.resource-list a:hover {
+    text-decoration: underline;
+}
+
+/* --- Pied de Page --- */
+.footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    text-align: center;
+}
