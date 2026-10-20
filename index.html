@@ -12,8 +12,18 @@
         <header class="site-header">
             <div class="header-content">
                 <div class="profile-title">
-                    <h1>Jules HOUNDEKANNOU</h1>
+                    <h1>Jules HOUNDEKANNOU                         <button id="theme-toggle" aria-label="Changer de thème" class="theme-btn">
+    🌙   ☀️
+</button></h1>
                     <p class="tagline">Systems, Networks & Cybersecurity Specialist</p>
+                    <script>
+        (function() {
+            var savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+
                     <div class="links">
                         <a href="https://github.com/j-hdkn" target="_blank" rel="noopener">GitHub ↗</a>
                         <a href="https://www.linkedin.com/in/jules-houndekannou-708996215/" target="_blank" rel="noopener">LinkedIn ↗</a>
@@ -29,11 +39,9 @@
                 <a href="index.html" class="active">Resume</a>
                 <a href="projects.html">Featured Projects</a>
                 <a href="resources.html">Resources</a>
-                <a href="https://hashnode.com" target="_blank" rel="noopener">Blog ↗</a>
+                <a href="https://blog.juleshoundekannou.com/" target="_blank" rel="noopener">Blog ↗</a>
             </nav>
 </header>
-
-        <hr class="separator">
 
         <!-- Page Resume Content -->
         <section class="section">
@@ -161,5 +169,28 @@
         </footer>
     </main>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var themeBtn = document.getElementById('theme-toggle');
+            if (!themeBtn) return;
+
+            // Récupérer le thème actuel déjà appliqué par le <head>
+            var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            themeBtn.textContent = currentTheme === 'dark' ? '☀️ Light' : '🌙 Dark';
+
+            // Quand l'utilisateur clique sur le bouton
+            themeBtn.addEventListener('click', function() {
+                var activeTheme = document.documentElement.getAttribute('data-theme');
+                var newTheme = activeTheme === 'dark' ? 'light' : 'dark';
+
+                // 1. Changer le thème sur la page
+                document.documentElement.setAttribute('data-theme', newTheme);
+                // 2. Sauvegarder dans le navigateur
+                localStorage.setItem('theme', newTheme);
+                // 3. Mettre à jour le texte du bouton
+                themeBtn.textContent = newTheme === 'dark' ? '☀️ Light' : '🌙 Dark';
+            });
+        });
+    </script>
 </body>
 </html>

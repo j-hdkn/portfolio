@@ -1,15 +1,29 @@
-
-
 /* --- Variables Globales --- */
+
+/* 1. Thème Light / Fond Blanc (Par défaut) */
 :root {
-    --bg-color: #0d1117;          /* Fond noir très doux style GitHub/Terminal */
-    --card-bg: #161b22;           /* Fond des blocs / cartes de projet */
-    --text-main: #e6edf3;         /* Texte principal blanc cassé */
-    --text-muted: #8b949e;        /* Texte secondaire / dates / sous-titres */
-    --accent: #58a6ff;            /* Bleu cyan d'accentuation (liens / actif) */
-    --border-color: #30363d;      /* Bordures et séparateurs discrets */
+    --bg-color: #ffffff;          /* Fond blanc pur */
+    --card-bg: #f6f8fa;           /* Fond des cartes gris très clair */
+    --text-main: #1f2328;         /* Texte principal sombre (WCAG AAA) */
+    --text-muted: #656d76;        /* Texte secondaire / sous-titres */
+    --accent: #0969da;            /* Bleu d'accentuation très lisible sur blanc */
+    --accent-hover: #0550ae;      /* Bleu plus sombre au survol */
+    --border-color: #d0d7de;      /* Bordures et séparateurs discrets */
+    --tech-bg: #eff1f3;           /* Fond des badges techno */
     --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+/* 2. Thème Dark (Activé via <html data-theme="dark">) */
+[data-theme="dark"] {
+    --bg-color: #0d1117;          /* Fond noir très doux style GitHub/Terminal */
+    --card-bg: #161b22;           /* Fond des cartes */
+    --text-main: #e6edf3;         /* Texte principal blanc cassé */
+    --text-muted: #8b949e;        /* Texte secondaire */
+    --accent: #38bdf8;            /* Bleu cyan lisible sur fond sombre */
+    --accent-hover: #7dd3fc;      /* Cyan clair au survol */
+    --border-color: #30363d;      /* Bordures sombres */
+    --tech-bg: rgba(255, 255, 255, 0.08); /* Fond des badges techno */
 }
 
 /* --- Reset & Structure de Base --- */
@@ -25,6 +39,7 @@ body {
     font-family: var(--font-sans);
     line-height: 1.6;
     padding: 3rem 1rem;
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .container {
@@ -32,11 +47,10 @@ body {
     margin: 0 auto;
 }
 
-/* --- En-Tête & Navigation (Commun aux 3 pages) --- */
+/* --- En-Tête & Navigation --- */
 .site-header {
     margin-bottom: 2rem;
 }
-
 
 .header-content {
     display: flex;
@@ -50,16 +64,7 @@ body {
     height: 150px;
     object-fit: cover;
     border: 2px solid var(--border-color);
-}
-
-/* Adaptation pour mobile */
-@media (max-width: 600px) {
-    .header-content {
-        flex-direction: column-reverse;
-        align-items: flex-start;
-    }
-    
-
+    border-radius: 6px;
 }
 
 .profile-title h1 {
@@ -71,19 +76,54 @@ body {
 
 .tagline {
     font-size: 1.05rem;
-    color: var(--accent);
+    color: var(--text-muted);
     font-weight: 500;
     margin-top: 0.2rem;
 }
 
-.main-nav {
+/* Links sous le titre du profil (GitHub, LinkedIn, Email) */
+.profile-title .links {
+    margin-top: 0.5rem;
     display: flex;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0.75rem;
+    gap: 1rem;
     flex-wrap: wrap;
 }
+
+.profile-title .links a {
+    color: var(--accent);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.profile-title .links a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+.profile-title .links a:visited {
+    color: var(--accent);
+}
+
+/* Barre de navigation */
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    gap: 1rem;
+    margin-top: 1.5rem;
+    border-bottom: 1px solid var(--border-color); 
+    padding-bottom: 0.75rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
 
 .main-nav a {
     color: var(--text-muted);
@@ -103,6 +143,23 @@ body {
     border-bottom: 2px solid var(--accent);
     padding-bottom: 0.75rem;
     margin-bottom: -0.75rem;
+}
+
+/* Bouton bascule de thème (Bouton Moon/Sun) */
+.theme-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-btn:hover {
+    background-color: var(--card-bg);
+    border-color: var(--accent);
 }
 
 .separator {
@@ -131,7 +188,7 @@ body {
     margin-bottom: 1.5rem;
 }
 
-/* --- Page 1 : Resume (CV / Parcours) --- */
+/* --- Resume (CV / Parcours) --- */
 .timeline-item {
     margin-bottom: 1.5rem;
     padding-left: 1rem;
@@ -163,11 +220,14 @@ body {
     margin-top: 0.2rem;
 }
 
-/* Style spécifique pour les ancres d'institutions / entreprises */
 .institution a {
     color: var(--accent);
     text-decoration: none;
     font-weight: 500;
+}
+
+.institution a:hover {
+    text-decoration: underline;
 }
 
 /* Listes de compétences */
@@ -189,7 +249,7 @@ body {
     font-size: 0.85rem;
 }
 
-/* --- Page 2 : Featured Projects --- */
+/* --- Featured Projects --- */
 .project-list {
     display: flex;
     flex-direction: column;
@@ -201,7 +261,7 @@ body {
     border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 1.25rem;
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease, background-color 0.25s ease;
 }
 
 .project-card:hover {
@@ -225,6 +285,7 @@ body {
 }
 
 .project-header h3 a:hover {
+    color: var(--accent-hover);
     text-decoration: underline;
 }
 
@@ -232,9 +293,10 @@ body {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--text-muted);
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--tech-bg);
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
+    border: 1px solid var(--border-color);
 }
 
 .project-card p {
@@ -242,7 +304,7 @@ body {
     color: var(--text-muted);
 }
 
-/* --- Page 3 : Resources --- */
+/* --- Resources --- */
 .resource-list {
     list-style: none;
     display: flex;
@@ -272,6 +334,7 @@ body {
 }
 
 .resource-list a:hover {
+    color: var(--accent-hover);
     text-decoration: underline;
 }
 
@@ -284,4 +347,12 @@ body {
     color: var(--text-muted);
     font-family: var(--font-mono);
     text-align: center;
+}
+
+/* --- Adaptation Mobile --- */
+@media (max-width: 600px) {
+    .header-content {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
 }
